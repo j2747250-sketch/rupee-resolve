@@ -2217,6 +2217,13 @@ document.getElementById("btnSubmit").addEventListener("click", async function() 
     document.getElementById("formContent").style.display = "none";
     document.getElementById("formSuccess").classList.add("show");
 
+    const message = `Name: ${name}\nPhone: ${phone}\nIssue: ${issue}`;
+
+  window.open(
+    `https://wa.me/918360329547?text=${encodeURIComponent(message)}`,
+    "_blank"
+  );
+
   } catch (error) {
     spinner.classList.remove("show");
     text.innerText = "Try Again";
