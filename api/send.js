@@ -1,20 +1,31 @@
 import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export default async function handler(req, res) {
-  const { name, phone, issue } = req.body;
-
   try {
+    const resend = new Resend(process.env.RESEND_API_KEY);
+
+    const { name, phone, issue } = req.body;
+
+    if (!name || !phone || !issue) {
+      return res.status(400).json({ error: "Missing fields" });
+    }
+
     await resend.emails.send({
       from: 'onboarding@resend.dev',
-      to: 'j2747250@gmail.com',
-      subject: 'New Lead - Rupee Resolve',
-      text: `Name: ${name}\nPhone: ${phone}\nIssue: ${issue}`,
+      to: 'yourrealemail@gmail.com', // CHANGE THIS
+      subject: `New Lead - ${name}`,
+      html: `
+        <h2>New Lead</h2>
+        <p><b>Name:</b> ${name}</p>
+        <p><b>Phone:</b> ${phone}</p>
+        <p><b>Issue:</b><br/>${issue}</p>
+      `,
     });
 
-    res.status(200).json({ success: true });
+    return res.status(200).json({ success: true });
+
   } catch (error) {
-    res.status(500).json({ error });
+    console.error("ERROR:", error);
+    return res.status(500).json({ error: error.message });
   }
 }
