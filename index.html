@@ -1,0 +1,2184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rupee Resolve — Financial Dispute Resolution</title>
+  <meta name="description"
+    content="When money records go wrong, we help make them right. Expert support for CIBIL issues, bank charges, EMI disputes, and financial record corrections." />
+  <meta name="keywords"
+    content="CIBIL dispute, bank charges, EMI dispute, credit report correction, financial dispute resolution, India" />
+  <meta property="og:title" content="Rupee Resolve — Financial Dispute Resolution" />
+  <meta property="og:description" content="Simple support for financial disputes and banking errors." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Sora:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+  <style>
+    :root {
+      --teal: #1a7a6e;
+      --teal-light: #2a9d8f;
+      --teal-pale: #e8f5f3;
+      --teal-muted: #c5e8e4;
+      --ink: #0f1c1a;
+      --ink-soft: #2d4a47;
+      --ink-muted: #5a7572;
+      --stone: #f5f2ee;
+      --stone-2: #ede9e3;
+      --white: #ffffff;
+      --border: rgba(26, 122, 110, 0.12);
+      --shadow-sm: 0 2px 12px rgba(26, 122, 110, 0.08);
+      --shadow-md: 0 8px 40px rgba(26, 122, 110, 0.12);
+      --shadow-lg: 0 20px 80px rgba(26, 122, 110, 0.16);
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'Sora', sans-serif;
+      --ease-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--white);
+      color: var(--ink);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* ── SCROLLBAR ── */
+    ::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--stone);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--teal);
+      border-radius: 2px;
+    }
+
+    /* ── NAV ── */
+    #nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 0 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(20px) saturate(1.4);
+      -webkit-backdrop-filter: blur(20px) saturate(1.4);
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    #nav.scrolled {
+      border-bottom-color: var(--border);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .nav-logo img {
+      height: 36px;
+      width: auto;
+    }
+
+    .nav-logo span {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--teal);
+      letter-spacing: -0.01em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      text-decoration: none;
+      position: relative;
+      padding-bottom: 2px;
+      transition: color 0.25s;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: var(--teal);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.3s var(--ease-smooth);
+    }
+
+    .nav-links a:hover {
+      color: var(--teal);
+    }
+
+    .nav-links a:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    .nav-cta {
+      background: var(--teal);
+      color: var(--white) !important;
+      padding: 8px 20px;
+      border-radius: 50px;
+      font-size: 0.78rem !important;
+      letter-spacing: 0.05em !important;
+      transition: background 0.25s, transform 0.2s, box-shadow 0.25s !important;
+    }
+
+    .nav-cta::after {
+      display: none !important;
+    }
+
+    .nav-cta:hover {
+      background: var(--teal-light) !important;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 20px rgba(26, 122, 110, 0.3) !important;
+    }
+
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+    }
+
+    .nav-hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--teal);
+      border-radius: 2px;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+
+    .nav-mobile {
+      display: none;
+      position: fixed;
+      top: 68px;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.97);
+      backdrop-filter: blur(20px);
+      padding: 1.5rem 5%;
+      border-bottom: 1px solid var(--border);
+      z-index: 999;
+      flex-direction: column;
+      gap: 0;
+      transform: translateY(-8px);
+      opacity: 0;
+      transition: opacity 0.3s, transform 0.3s;
+    }
+
+    .nav-mobile.open {
+      display: flex;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .nav-mobile a {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--ink-soft);
+      text-decoration: none;
+      padding: 0.85rem 0;
+      border-bottom: 1px solid var(--border);
+      transition: color 0.2s;
+    }
+
+    .nav-mobile a:hover {
+      color: var(--teal);
+    }
+
+    /* ── SECTIONS SHARED ── */
+    section {
+      position: relative;
+    }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background: var(--stone);
+      overflow: hidden;
+      padding: 120px 5% 80px;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .hero-bg-circle {
+      position: absolute;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(26, 122, 110, 0.08) 0%, transparent 70%);
+    }
+
+    .hero-bg-circle.c1 {
+      width: 700px;
+      height: 700px;
+      top: -200px;
+      right: -100px;
+    }
+
+    .hero-bg-circle.c2 {
+      width: 400px;
+      height: 400px;
+      bottom: -50px;
+      left: -100px;
+    }
+
+    .hero-grid-lines {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(26, 122, 110, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(26, 122, 110, 0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
+    }
+
+    .hero-content {
+      max-width: 720px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--teal-pale);
+      border: 1px solid var(--teal-muted);
+      color: var(--teal);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 50px;
+      margin-bottom: 1.8rem;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 0.7s var(--ease-smooth) 0.1s forwards;
+    }
+
+    .hero-badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--teal);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 0.5;
+        transform: scale(1.5);
+      }
+    }
+
+    .hero-headline {
+      font-family: var(--font-display);
+      font-size: clamp(2.6rem, 6vw, 5rem);
+      font-weight: 500;
+      line-height: 1.1;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeUp 0.8s var(--ease-smooth) 0.25s forwards;
+    }
+
+    .hero-headline em {
+      font-style: italic;
+      color: var(--teal);
+    }
+
+    .hero-sub {
+      font-size: clamp(1rem, 2vw, 1.15rem);
+      font-weight: 300;
+      color: var(--ink-muted);
+      line-height: 1.7;
+      max-width: 520px;
+      margin-bottom: 2.5rem;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeUp 0.8s var(--ease-smooth) 0.4s forwards;
+    }
+
+    .hero-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeUp 0.8s var(--ease-smooth) 0.55s forwards;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--teal);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      padding: 14px 28px;
+      border-radius: 50px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: background 0.25s, transform 0.2s, box-shadow 0.25s;
+      box-shadow: 0 4px 24px rgba(26, 122, 110, 0.25);
+    }
+
+    .btn-primary:hover {
+      background: var(--teal-light);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(26, 122, 110, 0.35);
+    }
+
+    .btn-primary svg {
+      transition: transform 0.25s;
+    }
+
+    .btn-primary:hover svg {
+      transform: translateX(3px);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: var(--teal);
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      padding: 14px 28px;
+      border-radius: 50px;
+      text-decoration: none;
+      border: 1.5px solid var(--teal);
+      cursor: pointer;
+      transition: background 0.25s, transform 0.2s;
+    }
+
+    .btn-secondary:hover {
+      background: var(--teal-pale);
+      transform: translateY(-2px);
+    }
+
+    .hero-visual {
+      position: absolute;
+      right: 5%;
+      top: 50%;
+      transform: translateY(-50%);
+      width: min(420px, 40vw);
+      pointer-events: none;
+      opacity: 0;
+      animation: heroVisual 1.2s var(--ease-smooth) 0.6s forwards;
+    }
+
+    @keyframes heroVisual {
+      to {
+        opacity: 1;
+      }
+    }
+
+    .hero-float-card {
+      position: absolute;
+      background: var(--white);
+      border-radius: 16px;
+      padding: 16px 20px;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border);
+      font-size: 0.78rem;
+    }
+
+    .hero-float-card.card-1 {
+      top: 60px;
+      right: 30px;
+      animation: float1 5s ease-in-out infinite 1.5s;
+    }
+
+    .hero-float-card.card-2 {
+      bottom: 80px;
+      left: 10px;
+      animation: float2 6s ease-in-out infinite 2s;
+    }
+
+    @keyframes float1 {
+
+      0%,
+      100% {
+        transform: translateY(0) rotate(1deg);
+      }
+
+      50% {
+        transform: translateY(-12px) rotate(1deg);
+      }
+    }
+
+    @keyframes float2 {
+
+      0%,
+      100% {
+        transform: translateY(0) rotate(-1deg);
+      }
+
+      50% {
+        transform: translateY(-10px) rotate(-1deg);
+      }
+    }
+
+    .hero-main-orb {
+      width: 100%;
+      padding-bottom: 100%;
+      border-radius: 50%;
+      background: conic-gradient(from 180deg, var(--teal-pale), var(--teal-muted), var(--teal-pale));
+      position: relative;
+      animation: spin 20s linear infinite;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .hero-orb-inner {
+      position: absolute;
+      inset: 15%;
+      border-radius: 50%;
+      background: var(--stone);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: spin 20s linear infinite reverse;
+    }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ── SCROLL REVEALS ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.7s var(--ease-smooth), transform 0.7s var(--ease-smooth);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-40px);
+      transition: opacity 0.7s var(--ease-smooth), transform 0.7s var(--ease-smooth);
+    }
+
+    .reveal-left.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(40px);
+      transition: opacity 0.7s var(--ease-smooth), transform 0.7s var(--ease-smooth);
+    }
+
+    .reveal-right.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .reveal-scale {
+      opacity: 0;
+      transform: scale(0.92);
+      transition: opacity 0.7s var(--ease-smooth), transform 0.7s var(--ease-smooth);
+    }
+
+    .reveal-scale.visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    [data-delay="1"] {
+      transition-delay: 0.1s !important;
+    }
+
+    [data-delay="2"] {
+      transition-delay: 0.2s !important;
+    }
+
+    [data-delay="3"] {
+      transition-delay: 0.3s !important;
+    }
+
+    [data-delay="4"] {
+      transition-delay: 0.4s !important;
+    }
+
+    [data-delay="5"] {
+      transition-delay: 0.5s !important;
+    }
+
+    /* ── SECTION LABELS ── */
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-label::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 1.5px;
+      background: var(--teal);
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 500;
+      color: var(--ink);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+
+    .section-sub {
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--ink-muted);
+      line-height: 1.75;
+      max-width: 520px;
+    }
+
+    /* ── PROBLEMS SECTION ── */
+    #problems {
+      padding: 120px 5%;
+      background: var(--white);
+    }
+
+    .problems-header {
+      margin-bottom: 4rem;
+    }
+
+    .problems-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .problem-card {
+      background: var(--stone);
+      border: 1px solid var(--stone-2);
+      border-radius: 20px;
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.35s var(--ease-smooth), box-shadow 0.35s, border-color 0.35s;
+      cursor: default;
+    }
+
+    .problem-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--teal), var(--teal-light));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s var(--ease-smooth);
+    }
+
+    .problem-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--teal-muted);
+    }
+
+    .problem-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .problem-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--teal-pale);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.2rem;
+      color: var(--teal);
+      font-size: 1.2rem;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    .problem-card:hover .problem-icon {
+      background: var(--teal);
+      color: var(--white);
+      transform: rotate(5deg) scale(1.05);
+    }
+
+    .problem-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 0.6rem;
+      letter-spacing: -0.01em;
+    }
+
+    .problem-card p {
+      font-size: 0.82rem;
+      font-weight: 300;
+      color: var(--ink-muted);
+      line-height: 1.65;
+    }
+
+    /* ── HOW IT WORKS ── */
+    #how {
+      padding: 120px 5%;
+      background: var(--ink);
+      color: var(--white);
+      overflow: hidden;
+    }
+
+    #how .section-label {
+      color: var(--teal-light);
+    }
+
+    #how .section-label::before {
+      background: var(--teal-light);
+    }
+
+    #how .section-title {
+      color: var(--white);
+    }
+
+    #how .section-sub {
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .how-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 6rem;
+      align-items: start;
+      margin-top: 4rem;
+    }
+
+    .steps-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .step-item {
+      display: flex;
+      gap: 1.5rem;
+      padding: 1.8rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      position: relative;
+      cursor: pointer;
+      transition: padding-left 0.3s var(--ease-smooth);
+    }
+
+    .step-item:last-child {
+      border-bottom: none;
+    }
+
+    .step-item:hover {
+      padding-left: 8px;
+    }
+
+    .step-number {
+      font-family: var(--font-display);
+      font-size: 3rem;
+      font-weight: 300;
+      color: rgba(255, 255, 255, 0.1);
+      line-height: 1;
+      min-width: 50px;
+      transition: color 0.3s;
+    }
+
+    .step-item:hover .step-number {
+      color: var(--teal-light);
+    }
+
+    .step-body h3 {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: var(--white);
+      margin-bottom: 0.4rem;
+      letter-spacing: -0.01em;
+    }
+
+    .step-body p {
+      font-size: 0.83rem;
+      font-weight: 300;
+      color: rgba(255, 255, 255, 0.45);
+      line-height: 1.65;
+    }
+
+    .step-visual {
+      position: sticky;
+      top: 120px;
+      height: 460px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 28px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .step-visual-inner {
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .step-visual-icon {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+      display: block;
+      filter: grayscale(0.3);
+    }
+
+    .step-visual-text {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      color: rgba(255, 255, 255, 0.7);
+      font-style: italic;
+      line-height: 1.5;
+    }
+
+    /* animated document illustration */
+    .doc-anim {
+      position: relative;
+      width: 200px;
+      margin: 0 auto;
+    }
+
+    .doc-page {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 12px;
+      padding: 20px 18px;
+      width: 100%;
+    }
+
+    .doc-line {
+      height: 8px;
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.12);
+      margin-bottom: 10px;
+      transform-origin: left;
+      animation: lineGrow 2s ease-in-out infinite alternate;
+    }
+
+    .doc-line:nth-child(1) {
+      width: 80%;
+      animation-delay: 0s;
+    }
+
+    .doc-line:nth-child(2) {
+      width: 60%;
+      animation-delay: 0.2s;
+    }
+
+    .doc-line:nth-child(3) {
+      width: 90%;
+      animation-delay: 0.4s;
+    }
+
+    .doc-line:nth-child(4) {
+      width: 50%;
+      animation-delay: 0.6s;
+    }
+
+    .doc-check {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--teal);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 12px auto 0;
+      animation: checkPop 2s ease-in-out infinite;
+    }
+
+    @keyframes lineGrow {
+      from {
+        opacity: 0.3;
+        transform: scaleX(0.7);
+      }
+
+      to {
+        opacity: 1;
+        transform: scaleX(1);
+      }
+    }
+
+    @keyframes checkPop {
+
+      0%,
+      100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.15);
+      }
+    }
+
+    /* ── SERVICES ── */
+    #services {
+      padding: 120px 5%;
+      background: var(--stone);
+    }
+
+    .services-header {
+      margin-bottom: 4rem;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .service-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 2.2rem;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.35s var(--ease-smooth), box-shadow 0.35s, border-color 0.35s;
+      group: true;
+    }
+
+    .service-card-bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, var(--teal-pale) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--teal-muted);
+    }
+
+    .service-card:hover .service-card-bg {
+      opacity: 1;
+    }
+
+    .service-card-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .service-tag {
+      display: inline-block;
+      background: var(--teal-pale);
+      color: var(--teal);
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 50px;
+      margin-bottom: 1.2rem;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .service-card:hover .service-tag {
+      background: var(--teal);
+      color: var(--white);
+    }
+
+    .service-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 0.7rem;
+      letter-spacing: -0.01em;
+    }
+
+    .service-card p {
+      font-size: 0.83rem;
+      font-weight: 300;
+      color: var(--ink-muted);
+      line-height: 1.7;
+    }
+
+    .service-arrow {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1.5px solid var(--teal-muted);
+      color: var(--teal);
+      margin-top: 1.2rem;
+      transition: background 0.3s, transform 0.3s, border-color 0.3s;
+    }
+
+    .service-card:hover .service-arrow {
+      background: var(--teal);
+      color: var(--white);
+      border-color: var(--teal);
+      transform: rotate(45deg);
+    }
+
+    /* ── TRUST ── */
+    #trust {
+      padding: 120px 5%;
+      background: var(--white);
+    }
+
+    .trust-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+      margin-top: 4rem;
+    }
+
+    .trust-text .section-sub {
+      max-width: 420px;
+    }
+
+    .trust-quote {
+      font-family: var(--font-display);
+      font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+      font-style: italic;
+      color: var(--ink);
+      line-height: 1.5;
+      margin-top: 2rem;
+      padding-left: 1.5rem;
+      border-left: 3px solid var(--teal);
+    }
+
+    .trust-points {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .trust-point {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      background: var(--stone);
+      border: 1px solid var(--stone-2);
+      border-radius: 16px;
+      padding: 1.2rem 1.5rem;
+      transition: transform 0.3s var(--ease-smooth), box-shadow 0.3s, border-color 0.3s;
+    }
+
+    .trust-point:hover {
+      transform: translateX(6px);
+      border-color: var(--teal-muted);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .trust-point-check {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--teal-pale);
+      border: 1.5px solid var(--teal-muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--teal);
+      flex-shrink: 0;
+      margin-top: 1px;
+      transition: background 0.3s, border-color 0.3s;
+    }
+
+    .trust-point:hover .trust-point-check {
+      background: var(--teal);
+      color: var(--white);
+      border-color: var(--teal);
+    }
+
+    .trust-point-body h4 {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 0.2rem;
+    }
+
+    .trust-point-body p {
+      font-size: 0.78rem;
+      font-weight: 300;
+      color: var(--ink-muted);
+      line-height: 1.55;
+    }
+
+    /* ── CTA BAND ── */
+    #cta-band {
+      padding: 100px 5%;
+      background: var(--teal);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-band-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.06) 0%, transparent 50%),
+        radial-gradient(circle at 80% 50%, rgba(255, 255, 255, 0.04) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    #cta-band h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 3.8rem);
+      font-weight: 400;
+      color: var(--white);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+      position: relative;
+    }
+
+    #cta-band p {
+      font-size: 1rem;
+      font-weight: 300;
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 2.5rem;
+      position: relative;
+    }
+
+    .btn-white {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--white);
+      color: var(--teal);
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 600;
+      padding: 14px 32px;
+      border-radius: 50px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.25s, box-shadow 0.25s;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
+      position: relative;
+    }
+
+    .btn-white:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+    }
+
+    /* ── CONTACT ── */
+    #contact {
+      padding: 120px 5%;
+      background: var(--stone);
+    }
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 5rem;
+      align-items: start;
+      margin-top: 4rem;
+    }
+
+    .contact-info h3 {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 1rem;
+    }
+
+    .contact-info p {
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: var(--ink-muted);
+      line-height: 1.75;
+      margin-bottom: 2rem;
+    }
+
+    .contact-detail {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.85rem;
+      color: var(--ink-soft);
+      margin-bottom: 0.8rem;
+    }
+
+    .contact-detail svg {
+      color: var(--teal);
+      flex-shrink: 0;
+    }
+
+    .contact-form-wrap {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 2.8rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      margin-bottom: 0.6rem;
+    }
+
+    .form-control {
+      width: 100%;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: var(--ink);
+      background: var(--stone);
+      border: 1.5px solid var(--stone-2);
+      border-radius: 12px;
+      padding: 14px 18px;
+      outline: none;
+      transition: border-color 0.25s, box-shadow 0.25s, background 0.25s;
+      -webkit-appearance: none;
+    }
+
+    .form-control:focus {
+      border-color: var(--teal);
+      background: var(--white);
+      box-shadow: 0 0 0 4px rgba(26, 122, 110, 0.08);
+    }
+
+    .form-control::placeholder {
+      color: var(--ink-muted);
+      opacity: 0.6;
+    }
+
+    textarea.form-control {
+      resize: none;
+      min-height: 130px;
+    }
+
+    .form-error {
+      font-size: 0.72rem;
+      color: #e05252;
+      margin-top: 0.4rem;
+      display: none;
+    }
+
+    .form-group.has-error .form-control {
+      border-color: #e05252;
+    }
+
+    .form-group.has-error .form-error {
+      display: block;
+    }
+
+    .btn-submit {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: var(--teal);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 500;
+      padding: 16px;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.25s, transform 0.2s, box-shadow 0.25s;
+      box-shadow: 0 4px 24px rgba(26, 122, 110, 0.2);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-submit::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--teal-light);
+      transform: translateX(-100%);
+      transition: transform 0.4s var(--ease-smooth);
+    }
+
+    .btn-submit:hover::before {
+      transform: translateX(0);
+    }
+
+    .btn-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(26, 122, 110, 0.3);
+    }
+
+    .btn-submit span {
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn-submit:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+      transform: none !important;
+    }
+
+    .spinner {
+      width: 18px;
+      height: 18px;
+      border: 2.5px solid rgba(255, 255, 255, 0.3);
+      border-top-color: var(--white);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      display: none;
+    }
+
+    .spinner.show {
+      display: block;
+    }
+
+    /* Thank you state */
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .form-success.show {
+      display: block;
+    }
+
+    .form-success-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: var(--teal-pale);
+      border: 2px solid var(--teal-muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.2rem;
+      color: var(--teal);
+      animation: checkPop 0.5s var(--ease-spring) forwards;
+    }
+
+    .form-success h3 {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+    }
+
+    .form-success p {
+      font-size: 0.85rem;
+      color: var(--ink-muted);
+      line-height: 1.65;
+    }
+
+    .form-error-msg {
+      display: none;
+      background: #fef2f2;
+      border: 1px solid #fecaca;
+      border-radius: 10px;
+      padding: 12px 16px;
+      font-size: 0.82rem;
+      color: #dc2626;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    .form-error-msg.show {
+      display: block;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--ink);
+      color: rgba(255, 255, 255, 0.5);
+      padding: 40px 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.78rem;
+      font-weight: 300;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .footer-brand img {
+      height: 30px;
+      filter: brightness(0) invert(1) opacity(0.7);
+    }
+
+    .footer-brand span {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    footer a {
+      color: rgba(255, 255, 255, 0.4);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    footer a:hover {
+      color: var(--teal-light);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .nav-links {
+        display: none;
+      }
+
+      .nav-hamburger {
+        display: flex;
+      }
+
+      .hero-visual {
+        display: none;
+      }
+
+      .how-layout {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .step-visual {
+        position: static;
+        height: auto;
+        padding: 2rem;
+      }
+
+      .trust-layout {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .contact-layout {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero-ctas {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      footer {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .footer-links {
+        justify-content: center;
+      }
+
+      .contact-form-wrap {
+        padding: 2rem 1.5rem;
+      }
+
+      #how,
+      #services,
+      #trust,
+      #problems,
+      #contact,
+      #cta-band {
+        padding: 80px 5%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav id="nav" role="navigation" aria-label="Main navigation">
+    <a class="nav-logo" href="#hero">
+      <img src="https://cdn.jsdelivr.net/gh/j2747250-sketch/rupee-resolve-assets/logo_RR.png"
+        alt="Rupee Resolve logo" />
+      <span>Rupee Resolve</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#problems">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#how">How It Works</a></li>
+      <li><a href="#contact" class="nav-cta">Get Help</a></li>
+    </ul>
+    <button class="nav-hamburger" aria-label="Open menu" id="hamburger" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="nav-mobile" id="navMobile" role="menu">
+    <a href="#problems" role="menuitem">About</a>
+    <a href="#services" role="menuitem">Services</a>
+    <a href="#how" role="menuitem">How It Works</a>
+    <a href="#trust" role="menuitem">Why Us</a>
+    <a href="#contact" role="menuitem" style="color:var(--teal);font-weight:600;">Get Help Now →</a>
+  </div>
+
+  <!-- HERO -->
+  <section id="hero" aria-label="Hero">
+    <div class="hero-bg">
+      <div class="hero-bg-circle c1"></div>
+      <div class="hero-bg-circle c2"></div>
+      <div class="hero-grid-lines"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        Financial Dispute Resolution
+      </div>
+      <h1 class="hero-headline">
+        When money records<br />go wrong,<br />we help make them <em>right.</em>
+      </h1>
+      <p class="hero-sub">Simple, clear support for CIBIL disputes, bank charges, EMI issues, and financial record
+        corrections. We guide you through every step.</p>
+      <div class="hero-ctas">
+        <a href="#contact" class="btn-primary">
+          Get Help Now
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </a>
+        <a href="#problems" class="btn-secondary">
+          Check My Issue
+        </a>
+      </div>
+    </div>
+    <!-- Hero Visual -->
+    <div class="hero-visual" aria-hidden="true">
+      <div style="position:relative;width:100%;padding-bottom:100%;">
+        <div class="hero-main-orb"></div>
+        <div class="hero-orb-inner">
+          <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+            <circle cx="40" cy="40" r="38" stroke="var(--teal)" stroke-width="1.5" stroke-dasharray="6 4"
+              opacity="0.4" />
+            <text x="40" y="52" text-anchor="middle" font-size="32" fill="var(--teal)">₹</text>
+          </svg>
+        </div>
+        <!-- Float card 1 -->
+        <div class="hero-float-card card-1">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+            <div style="width:8px;height:8px;border-radius:50%;background:#22c55e;"></div>
+            <span style="font-size:0.7rem;font-weight:600;color:var(--teal);">Issue Resolved</span>
+          </div>
+          <div style="font-size:0.75rem;color:var(--ink-muted);font-weight:300;">CIBIL score updated<br />in 7 days
+          </div>
+        </div>
+        <!-- Float card 2 -->
+        <div class="hero-float-card card-2">
+          <div
+            style="font-size:0.68rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--teal);margin-bottom:6px;">
+            Process</div>
+          <div style="display:flex;gap:6px;">
+            <div style="width:8px;height:8px;border-radius:50%;background:var(--teal);"></div>
+            <div style="width:8px;height:8px;border-radius:50%;background:var(--teal);"></div>
+            <div style="width:8px;height:8px;border-radius:50%;background:var(--teal-muted);"></div>
+            <div style="width:8px;height:8px;border-radius:50%;background:var(--teal-muted);"></div>
+          </div>
+          <div style="font-size:0.75rem;color:var(--ink-muted);margin-top:6px;font-weight:300;">Step 2 of 4</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEMS -->
+  <section id="problems" aria-labelledby="problems-title">
+    <div style="padding:120px 5%;">
+      <div class="problems-header">
+        <div class="section-label reveal">Common Issues</div>
+        <h2 class="section-title reveal" data-delay="1" id="problems-title">
+          Financial problems<br />that deserve real answers.
+        </h2>
+        <p class="section-sub reveal" data-delay="2">If any of these sound familiar, you are not alone — and these
+          issues can be resolved with the right guidance.</p>
+      </div>
+      <div class="problems-grid">
+        <div class="problem-card reveal" data-delay="1">
+          <div class="problem-icon">
+            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10" />
+              <path d="M12 8v4M12 16h.01" />
+            </svg>
+          </div>
+          <h3>CIBIL / Credit Report Errors</h3>
+          <p>Wrong entries, outdated records, or accounts you never opened are silently damaging your credit score.</p>
+        </div>
+        <div class="problem-card reveal" data-delay="2">
+          <div class="problem-icon">
+            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+            </svg>
+          </div>
+          <h3>Hidden Bank Charges</h3>
+          <p>Unexplained deductions, maintenance fees, or charges you never agreed to — affecting your account without
+            notice.</p>
+        </div>
+        <div class="problem-card reveal" data-delay="3">
+          <div class="problem-icon">
+            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+              <circle cx="9" cy="7" r="4" />
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
+            </svg>
+          </div>
+          <h3>Name / Record Misspellings</h3>
+          <p>A misspelled name or wrong date in a financial record can block loans, insurance, and government benefits.
+          </p>
+        </div>
+        <div class="problem-card reveal" data-delay="1">
+          <div class="problem-icon">
+            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M10 15l-3-3 3-3M14 9l3 3-3 3" />
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+            </svg>
+          </div>
+          <h3>Fake Loans / Insurance</h3>
+          <p>Loans or insurance policies opened in your name without your knowledge, often a result of identity misuse.
+          </p>
+        </div>
+        <div class="problem-card reveal" data-delay="2">
+          <div class="problem-icon">
+            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <line x1="12" y1="1" x2="12" y2="23" />
+              <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+            </svg>
+          </div>
+          <h3>EMI Disputes</h3>
+          <p>Incorrect EMI calculations, payments not reflected, or lender records that don't match your payment
+            history.</p>
+        </div>
+        <div class="problem-card reveal" data-delay="3">
+          <div class="problem-icon">
+            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <rect x="2" y="5" width="20" height="14" rx="2" />
+              <path d="M2 10h20" />
+            </svg>
+          </div>
+          <h3>Payment Aggregator Issues</h3>
+          <p>Failed transactions held as settled, duplicate charges, or refund delays from payment gateways and UPI
+            platforms.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how" aria-labelledby="how-title">
+    <div class="section-label reveal" style="padding:0 5%;padding-top:120px;">How It Works</div>
+    <div style="padding:0 5% 0;">
+      <h2 class="section-title reveal" data-delay="1" id="how-title" style="color:var(--white);">
+        Four steps.<br />One resolution.
+      </h2>
+      <p class="section-sub reveal" data-delay="2" style="color:rgba(255,255,255,0.5);">A process that is transparent,
+        simple, and built around your specific issue — not a generic helpline script.</p>
+    </div>
+    <div class="how-layout" style="padding:0 5% 120px;">
+      <div class="steps-list">
+        <div class="step-item reveal">
+          <div class="step-number">01</div>
+          <div class="step-body">
+            <h3>Share your issue</h3>
+            <p>Tell us what happened in plain language. No legal jargon needed — just the facts as you know them.</p>
+          </div>
+        </div>
+        <div class="step-item reveal" data-delay="1">
+          <div class="step-number">02</div>
+          <div class="step-body">
+            <h3>We review the details</h3>
+            <p>Our team carefully studies your situation and identifies the most relevant resolution pathway.</p>
+          </div>
+        </div>
+        <div class="step-item reveal" data-delay="2">
+          <div class="step-number">03</div>
+          <div class="step-body">
+            <h3>We guide the next action</h3>
+            <p>You receive clear, actionable guidance — specific steps, templates, and the exact authorities to
+              approach.</p>
+          </div>
+        </div>
+        <div class="step-item reveal" data-delay="3">
+          <div class="step-number">04</div>
+          <div class="step-body">
+            <h3>Resolution &amp; follow-up</h3>
+            <p>We stay with you through the process, helping you respond to institutions until the matter is closed.</p>
+          </div>
+        </div>
+      </div>
+      <div class="step-visual reveal-right">
+        <div class="step-visual-inner">
+          <div class="doc-anim">
+            <div class="doc-page">
+              <div class="doc-line"></div>
+              <div class="doc-line"></div>
+              <div class="doc-line"></div>
+              <div class="doc-line"></div>
+              <div class="doc-check">
+                <svg width="14" height="14" fill="none" stroke="white" stroke-width="2.5" viewBox="0 0 24 24">
+                  <path d="M20 6L9 17l-5-5" />
+                </svg>
+              </div>
+            </div>
+          </div>
+          <p class="step-visual-text" style="margin-top:2rem;">"Clear guidance for issues<br />that should not
+            have<br />been ignored."</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" aria-labelledby="services-title">
+    <div class="services-header" style="padding:120px 5% 0;">
+      <div class="section-label reveal">What We Handle</div>
+      <h2 class="section-title reveal" data-delay="1" id="services-title">
+        Our services,<br />clearly stated.
+      </h2>
+      <p class="section-sub reveal" data-delay="2">We focus on the financial issues that institutions often ignore — and
+        help you navigate them with precision.</p>
+    </div>
+    <div class="services-grid" style="padding:3rem 5% 120px;">
+      <div class="service-card reveal" data-delay="1">
+        <div class="service-card-bg"></div>
+        <div class="service-card-content">
+          <span class="service-tag">Credit</span>
+          <h3>CIBIL &amp; Credit Report Disputes</h3>
+          <p>We help you identify and dispute inaccurate entries in your credit report — from wrongly reported defaults
+            to accounts that were never yours.</p>
+          <div class="service-arrow">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div class="service-card reveal" data-delay="2">
+        <div class="service-card-bg"></div>
+        <div class="service-card-content">
+          <span class="service-tag">Banking</span>
+          <h3>Bank Charge Disputes</h3>
+          <p>Unclear deductions, unauthorized fee structures, or charges applied without consent — we help you challenge
+            them through the right channels.</p>
+          <div class="service-arrow">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div class="service-card reveal" data-delay="3">
+        <div class="service-card-bg"></div>
+        <div class="service-card-content">
+          <span class="service-tag">Records</span>
+          <h3>Record Correction Support</h3>
+          <p>Wrong names, dates of birth, or address mismatches in banking, insurance, or loan records — we guide you
+            through the correction process.</p>
+          <div class="service-arrow">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div class="service-card reveal" data-delay="1">
+        <div class="service-card-bg"></div>
+        <div class="service-card-content">
+          <span class="service-tag">Fraud</span>
+          <h3>Fake Loan &amp; Insurance Entries</h3>
+          <p>Fraudulent entries created in your name without consent. We help you raise formal disputes and get them
+            removed from your financial profile.</p>
+          <div class="service-arrow">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div class="service-card reveal" data-delay="2">
+        <div class="service-card-bg"></div>
+        <div class="service-card-content">
+          <span class="service-tag">Loans</span>
+          <h3>EMI &amp; Loan Disputes</h3>
+          <p>Payments not reflected, incorrect outstanding balances, or pre-closure penalties applied unfairly — we help
+            you build a clear case.</p>
+          <div class="service-arrow">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div class="service-card reveal" data-delay="3">
+        <div class="service-card-bg"></div>
+        <div class="service-card-content">
+          <span class="service-tag">Payments</span>
+          <h3>Payment Aggregator Issues</h3>
+          <p>Failed UPI payments marked successful, refund delays, or duplicate charges — we help you escalate these to
+            the right authority.</p>
+          <div class="service-arrow">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST -->
+  <section id="trust" aria-labelledby="trust-title">
+    <div style="padding:120px 5%;">
+      <div class="section-label reveal">Why Choose Us</div>
+      <div class="trust-layout">
+        <div class="trust-text reveal-left">
+          <h2 class="section-title" id="trust-title">
+            Built for<br />people — not<br /><em style="font-style:italic;color:var(--teal);">paperwork.</em>
+          </h2>
+          <p class="section-sub">We don't speak in legal abstractions. We explain what's wrong, what can be done, and
+            what you need to do — plainly and promptly.</p>
+          <blockquote class="trust-quote">
+            "Simple support for financial disputes and banking errors."
+          </blockquote>
+        </div>
+        <div class="trust-points">
+          <div class="trust-point reveal" data-delay="1">
+            <div class="trust-point-check">
+              <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path d="M20 6L9 17l-5-5" />
+              </svg>
+            </div>
+            <div class="trust-point-body">
+              <h4>Clear Communication</h4>
+              <p>Every step is explained in plain language. No confusing jargon, no assumptions.</p>
+            </div>
+          </div>
+          <div class="trust-point reveal" data-delay="2">
+            <div class="trust-point-check">
+              <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path d="M20 6L9 17l-5-5" />
+              </svg>
+            </div>
+            <div class="trust-point-body">
+              <h4>Issue-Based Support</h4>
+              <p>We focus on your specific problem — not a generic checklist that covers everything loosely.</p>
+            </div>
+          </div>
+          <div class="trust-point reveal" data-delay="3">
+            <div class="trust-point-check">
+              <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path d="M20 6L9 17l-5-5" />
+              </svg>
+            </div>
+            <div class="trust-point-body">
+              <h4>Fast Initial Response</h4>
+              <p>You hear from us quickly. We do not let your issue sit in a queue for days.</p>
+            </div>
+          </div>
+          <div class="trust-point reveal" data-delay="4">
+            <div class="trust-point-check">
+              <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path d="M20 6L9 17l-5-5" />
+              </svg>
+            </div>
+            <div class="trust-point-body">
+              <h4>Simple Process</h4>
+              <p>Share, review, act, resolve — a straightforward path with no unnecessary complexity added.</p>
+            </div>
+          </div>
+          <div class="trust-point reveal" data-delay="5">
+            <div class="trust-point-check">
+              <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path d="M20 6L9 17l-5-5" />
+              </svg>
+            </div>
+            <div class="trust-point-body">
+              <h4>Privacy First</h4>
+              <p>Your financial details stay confidential. We use them only to address your issue — nothing else.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <section id="cta-band" aria-label="Call to action">
+    <div class="cta-band-bg"></div>
+    <h2 class="reveal">
+      Your issue deserves<br />a real resolution.
+    </h2>
+    <p class="reveal" data-delay="1">Tell us what happened. We will tell you what can be done.</p>
+    <a href="#contact" class="btn-white reveal" data-delay="2">
+      Send Your Issue
+      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path d="M5 12h14M12 5l7 7-7 7" />
+      </svg>
+    </a>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" aria-labelledby="contact-title">
+    <div style="padding:120px 5%;">
+      <div class="section-label reveal">Contact Us</div>
+      <h2 class="section-title reveal" data-delay="1" id="contact-title">
+        Start here.<br />We'll take it<br /><em style="font-style:italic;color:var(--teal);">from there.</em>
+      </h2>
+      <div class="contact-layout">
+        <div class="contact-info reveal-left">
+          <h3>Tell us about your issue</h3>
+          <p>Share a brief description of the financial problem you're facing. We review every submission and get back
+            to you with a clear path forward.</p>
+          <div class="contact-detail">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path
+                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.29h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 15.92z" />
+            </svg>
+            <span>We respond to all inquiries within 24 hours</span>
+          </div>
+          <div class="contact-detail">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z" />
+              <circle cx="12" cy="10" r="3" />
+            </svg>
+            <span>India — serving clients across all states</span>
+          </div>
+          <div class="contact-detail">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+              <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+            </svg>
+            <span>All information shared is kept confidential</span>
+          </div>
+        </div>
+        <div class="contact-form-wrap reveal-right">
+          <div id="formSuccess" class="form-success" aria-live="polite">
+            <div class="form-success-icon">
+              <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path d="M20 6L9 17l-5-5" />
+              </svg>
+            </div>
+            <h3>Thank you for reaching out.</h3>
+            <p>We have received your message and will review your issue carefully. Expect a response within 24 hours.
+            </p>
+          </div>
+          <div id="formContent">
+            <div id="formErrorMsg" class="form-error-msg" role="alert">Something went wrong. Please try again or reach
+              out directly.</div>
+            <div class="form-group" id="group-name">
+              <label for="inputName">Full Name</label>
+              <input type="text" id="inputName" class="form-control" placeholder="Your full name" autocomplete="name" />
+              <div class="form-error" id="error-name">Please enter your name.</div>
+            </div>
+            <div class="form-group" id="group-phone">
+              <label for="inputPhone">Contact Number</label>
+              <input type="tel" id="inputPhone" class="form-control" placeholder="+91 00000 00000" autocomplete="tel" />
+              <div class="form-error" id="error-phone">Please enter a valid 10-digit mobile number.</div>
+            </div>
+            <div class="form-group" id="group-issue">
+              <label for="inputIssue">Issue Description</label>
+              <textarea id="inputIssue" class="form-control"
+                placeholder="Briefly describe your financial issue — the bank, the problem, and what has happened so far."></textarea>
+              <div class="form-error" id="error-issue">Please describe your issue (at least 20 characters).</div>
+            </div>
+            <button class="btn-submit" id="btnSubmit" type="button" aria-label="Send your issue">
+              <div class="spinner" id="spinner"></div>
+              <span id="btnText">Send My Issue</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer role="contentinfo">
+    <div class="footer-brand">
+      <img src="https://cdn.jsdelivr.net/gh/j2747250-sketch/rupee-resolve-assets/logo_RR.png"
+        alt="Rupee Resolve logo" />
+      <span>Rupee Resolve</span>
+    </div>
+    <div style="font-size:0.78rem;color:rgba(255,255,255,0.3);text-align:center;">
+      Financial dispute resolution, simplified.
+    </div>
+    <div class="footer-links">
+      <a href="#problems">Services</a>
+      <a href="#how">How It Works</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </footer>
+
+  <script>
+    /* ── NAV SCROLL ── */
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 20);
+    }, { passive: true });
+
+    /* ── HAMBURGER ── */
+    const hamburger = document.getElementById('hamburger');
+    const navMobile = document.getElementById('navMobile');
+    hamburger.addEventListener('click', () => {
+      const isOpen = navMobile.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', isOpen);
+      hamburger.querySelectorAll('span').forEach((s, i) => {
+        if (isOpen) {
+          if (i === 0) s.style.transform = 'translateY(7px) rotate(45deg)';
+          if (i === 1) s.style.opacity = '0';
+          if (i === 2) s.style.transform = 'translateY(-7px) rotate(-45deg)';
+        } else {
+          s.style.transform = ''; s.style.opacity = '';
+        }
+      });
+    });
+    navMobile.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        navMobile.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', false);
+        hamburger.querySelectorAll('span').forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
+      });
+    });
+
+    /* ── INTERSECTION OBSERVER ── */
+    const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(el => observer.observe(el));
+
+    /* ── HERO PARALLAX ── */
+    const hero = document.getElementById('hero');
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      if (y < window.innerHeight * 1.2) {
+        const heroContent = hero.querySelector('.hero-content');
+        const bg = hero.querySelector('.hero-bg');
+        if (heroContent) heroContent.style.transform = `translateY(${y * 0.25}px)`;
+        if (bg) bg.style.transform = `translateY(${y * 0.15}px)`;
+      }
+    }, { passive: true });
+
+    /* ── FORM VALIDATION & SUBMIT ── */
+    const btnSubmit = document.getElementById('btnSubmit');
+    const spinner = document.getElementById('spinner');
+    const btnText = document.getElementById('btnText');
+    const formSuccess = document.getElementById('formSuccess');
+    const formContent = document.getElementById('formContent');
+    const formErrorMsg = document.getElementById('formErrorMsg');
+
+    function setGroupError(groupId, show) {
+      document.getElementById(groupId).classList.toggle('has-error', show);
+    }
+
+    function validate() {
+      let valid = true;
+      const name = document.getElementById('inputName').value.trim();
+      const phone = document.getElementById('inputPhone').value.trim().replace(/\s/g, '');
+      const issue = document.getElementById('inputIssue').value.trim();
+      const phoneReg = /^(\+91)?[6-9]\d{9}$/;
+
+      setGroupError('group-name', !name);
+      setGroupError('group-phone', !phoneReg.test(phone));
+      setGroupError('group-issue', issue.length < 20);
+
+      if (!name || !phoneReg.test(phone) || issue.length < 20) valid = false;
+      return valid;
+    }
+
+    // Clear error on input
+    ['inputName', 'inputPhone', 'inputIssue'].forEach(id => {
+      document.getElementById(id).addEventListener('input', () => {
+        const groupMap = { inputName: 'group-name', inputPhone: 'group-phone', inputIssue: 'group-issue' };
+        document.getElementById(groupMap[id]).classList.remove('has-error');
+        formErrorMsg.classList.remove('show');
+      });
+    });
+
+    btnSubmit.addEventListener('click', async () => {
+      if (!validate()) return;
+      const name = document.getElementById('inputName').value.trim();
+      const phone = document.getElementById('inputPhone').value.trim();
+      const issue = document.getElementById('inputIssue').value.trim();
+
+      // Loading state
+      btnSubmit.disabled = true;
+      spinner.classList.add('show');
+      btnText.textContent = 'Sending…';
+      formErrorMsg.classList.remove('show');
+
+      try {
+        /*
+          SMTP / email delivery is handled by a secure serverless backend.
+          Replace the URL below with your deployed endpoint (e.g., Vercel/Netlify function).
+          The endpoint receives { name, phone, issue } and sends the email server-side.
+          DO NOT place SMTP credentials in this frontend file.
+        */
+        const res = await fetch('https://formsubmit.co/ajax/hello@rupeeresove.com', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({
+            name: name,
+            phone: phone,
+            message: issue,
+            _subject: `New Dispute Inquiry from ${name}`,
+            _captcha: 'false'
+          })
+        });
+        const data = await res.json();
+        if (data.success === 'true' || data.success === true || res.ok) {
+          formContent.style.display = 'none';
+          formSuccess.classList.add('show');
+        } else {
+          throw new Error('Form submission failed');
+        }
+      } catch (err) {
+        formErrorMsg.classList.add('show');
+        btnSubmit.disabled = false;
+        spinner.classList.remove('show');
+        btnText.textContent = 'Send My Issue';
+      }
+    });
+
+    /* ── SMOOTH SCROLL FOR ANCHOR LINKS ── */
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>
