@@ -2179,6 +2179,52 @@
       });
     });
   </script>
+  <script>
+document.getElementById("btnSubmit").addEventListener("click", async function() {
+  const name = document.getElementById("inputName").value;
+  const phone = document.getElementById("inputPhone").value;
+  const issue = document.getElementById("inputIssue").value;
+
+  if (!name || !phone || issue.length < 10) {
+    alert("Please fill all details properly");
+    return;
+  }
+
+  const btn = document.getElementById("btnSubmit");
+  const text = document.getElementById("btnText");
+  const spinner = document.getElementById("spinner");
+
+  btn.disabled = true;
+  spinner.classList.add("show");
+  text.innerText = "Sending...";
+
+  try {
+    await fetch("/api/send", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        name,
+        phone,
+        issue
+      })
+    });
+
+    spinner.classList.remove("show");
+    text.innerText = "Sent ✅";
+
+    document.getElementById("formContent").style.display = "none";
+    document.getElementById("formSuccess").classList.add("show");
+
+  } catch (error) {
+    spinner.classList.remove("show");
+    text.innerText = "Try Again";
+    alert("Failed to send");
+    btn.disabled = false;
+  }
+});
+</script>
 </body>
 
 </html>
