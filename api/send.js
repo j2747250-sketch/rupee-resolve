@@ -12,7 +12,7 @@ export default async function handler(req, res) {
 
     await resend.emails.send({
       from: 'Rupee Resolve <hello@rupeeresolve.com>',
-      to: 'j2747250@gmail.com', // CHANGE THIS
+      to: 'support@rupeeresolve.com',
       subject: `New Lead - ${name}`,
       html: `
         <h2>New Lead</h2>
