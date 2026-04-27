@@ -1,43 +1,31 @@
-export default async function handler(req, res) {
-  if (req.method !== "POST") {
-    return res.status(405).json({ message: "Method not allowed" });
-  }
+import { Resend } from 'resend';
 
+export default async function handler(req, res) {
   try {
+    const resend = new Resend(process.env.RESEND_API_KEY);
+
     const { name, phone, issue } = req.body;
 
-    const response = await fetch("https://api.brevo.com/v3/smtp/email", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "api-key": process.env.BREVO_API_KEY,
-      },
-      body: JSON.stringify({
-        sender: {
-          name: "Rupee Resolve",
-          email: "leadz@rupeeresolve.com",
-        },
-        to: [
-          {
-            email: "support@rupeeresolve.com", // <-- PUT YOUR EMAIL
-          },
-        ],
-        subject: "New Lead - Rupee Resolve",
-        htmlContent: `
-          <h2>New Lead</h2>
-          <p><b>Name:</b> ${name}</p>
-          <p><b>Phone:</b> ${phone}</p>
-          <p><b>Issue:</b> ${issue}</p>
-          <p><a href="https://wa.me/${phone}">Chat on WhatsApp</a></p>
-        `,
-      }),
+    if (!name || !phone || !issue) {
+      return res.status(400).json({ error: "Missing fields" });
+    }
+
+    await resend.emails.send({
+      from: 'Rupee Resolve <lead@rupeeresolve.com>',
+      to: 'support@rupeeresolve.com',
+      subject: `New Lead - ${name}`,
+      html: `
+        <h2>New Lead</h2>
+        <p><b>Name:</b> ${name}</p>
+        <p><b>Phone:</b> ${phone}</p>
+        <p><b>Issue:</b><br/>${issue}</p>
+      `,
     });
 
-    const data = await response.json();
+    return res.status(200).json({ success: true });
 
-    return res.status(200).json({ success: true, data });
   } catch (error) {
-    console.error(error);
-    return res.status(500).json({ success: false });
+    console.error("ERROR:", error);
+    return res.status(500).json({ error: error.message });
   }
 }
