@@ -4,7 +4,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { name, email, amount, message } = req.body;
+    const { name, phone, issue } = req.body;
 
     const response = await fetch("https://api.brevo.com/v3/smtp/email", {
       method: "POST",
@@ -19,16 +19,16 @@ export default async function handler(req, res) {
         },
         to: [
           {
-            email: "YOUR_EMAIL@gmail.com", // ← CHANGE THIS (your inbox)
+            email: "YOUR_EMAIL@gmail.com", // <-- PUT YOUR EMAIL
           },
         ],
         subject: "New Lead - Rupee Resolve",
         htmlContent: `
           <h2>New Lead</h2>
           <p><b>Name:</b> ${name}</p>
-          <p><b>Email:</b> ${email}</p>
-          <p><b>Amount:</b> ₹${amount}</p>
-          <p><b>Message:</b> ${message}</p>
+          <p><b>Phone:</b> ${phone}</p>
+          <p><b>Issue:</b> ${issue}</p>
+          <p><a href="https://wa.me/${phone}">Chat on WhatsApp</a></p>
         `,
       }),
     });
