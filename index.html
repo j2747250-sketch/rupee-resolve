@@ -2266,7 +2266,38 @@
       btnText.textContent = 'Sending…';
       formErrorMsg.classList.remove('show');
 
-     
+      try {
+        /*
+          SMTP / email delivery is handled by a secure serverless backend.
+          Replace the URL below with your deployed endpoint (e.g., Vercel/Netlify function).
+          The endpoint receives { name, phone, issue } and sends the email server-side.
+          DO NOT place SMTP credentials in this frontend file.
+        */
+        const res = await fetch('https://formsubmit.co/ajax/hello@rupeeresove.com', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({
+            name: name,
+            phone: phone,
+            message: issue,
+            _subject: `New Dispute Inquiry from ${name}`,
+            _captcha: 'false'
+          })
+        });
+        const data = await res.json();
+        if (data.success === 'true' || data.success === true || res.ok) {
+          formContent.style.display = 'none';
+          formSuccess.classList.add('show');
+        } else {
+          throw new Error('Form submission failed');
+        }
+      } catch (err) {
+        formErrorMsg.classList.add('show');
+        btnSubmit.disabled = false;
+        spinner.classList.remove('show');
+        btnText.textContent = 'Send My Issue';
+      }
+    });
 
     /* ── SMOOTH SCROLL FOR ANCHOR LINKS ── */
     document.querySelectorAll('a[href^="#"]').forEach(a => {
