@@ -15,11 +15,11 @@ export default async function handler(req, res) {
       body: JSON.stringify({
         sender: {
           name: "Rupee Resolve",
-          email: "support@rupeeresolve.com",
+          email: "leadz@rupeeresolve.com",
         },
         to: [
           {
-            email: "YOUR_EMAIL@gmail.com", // <-- PUT YOUR EMAIL
+            email: "support@rupeeresolve.com", // <-- PUT YOUR EMAIL
           },
         ],
         subject: "New Lead - Rupee Resolve",
